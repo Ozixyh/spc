@@ -135,7 +135,7 @@ if st.button("ส่งแบบสอบถาม"):
     csv = convert_df(df)
 
     st.download_button(
-        label=" ดาวน์โหลดข้อมูลทั้งหมด (CSV)",
+        label=" ดาวน์โหลดข้อมูล(CSV)",
         data=csv,
         file_name="jobtest.csv",
         mime="text/csv",
