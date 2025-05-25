@@ -11,7 +11,7 @@ p1 = []
 reason = ""
 rank = ""
 know=[]
-alw=[]
+alw=""
 
 st.set_page_config(page_title="แบบสอบถาม", layout="centered")
 
@@ -137,6 +137,6 @@ if st.button("ส่งแบบสอบถาม"):
     st.download_button(
         label=" ดาวน์โหลดข้อมูลทั้งหมด (CSV)",
         data=csv,
-        file_name="data.csv",
+        file_name="job.csv",
         mime="text/csv",
     )
