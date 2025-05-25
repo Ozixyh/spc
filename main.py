@@ -115,7 +115,7 @@ if st.button("ส่งแบบสอบถาม"):
 
     new = pd.DataFrame([data]) 
 
-    csv = "job.csv"
+    csv = "jobtest.csv"
     if os.path.exists(csv):
         exist_data = pd.read_csv(csv )
         all_data = pd.concat([exist_data, new], ignore_index=True)
@@ -137,6 +137,6 @@ if st.button("ส่งแบบสอบถาม"):
     st.download_button(
         label=" ดาวน์โหลดข้อมูลทั้งหมด (CSV)",
         data=csv,
-        file_name="job.csv",
+        file_name="jobtest.csv",
         mime="text/csv",
     )
