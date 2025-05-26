@@ -100,7 +100,8 @@ if know :
                            format_func=lambda x: x)
 
 
-if st.button("ส่งแบบสอบถาม"):
+if alw != "": 
+    st.button("ส่งแบบสอบถาม")
     data = {
         "เพศ" : sex,
         "อายุ": age,
