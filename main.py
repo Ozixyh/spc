@@ -108,7 +108,7 @@ if know :
             "ยี่ห้อที่ทานประจำ" :alw
         }
         new = pd.DataFrame([data]) 
-        csv = "jobtest.csv"
+        csv = "jobspc.csv"
         
         if os.path.exists(csv):
             exist_data = pd.read_csv(csv )
@@ -131,6 +131,6 @@ if know :
         st.download_button(
             label=" ดาวน์โหลดข้อมูล(CSV)",
             data=csv,
-            file_name="jobtest.csv",
+            file_name="jobspc.csv",
             mime="text/csv",
         )
