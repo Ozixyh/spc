@@ -41,7 +41,7 @@ if age_input.isdigit():
         ages = "52 - 60"
     else: 
         st.warning("ไม่ผ่านเงื่อนไข ปิดจบแบบสัมภาษณ์")
-        st.button("ส่งแบบสอบถาม"):
+        st.button("ส่งแบบสอบถาม")
         st.stop()
     st.success(f"คุณอยู่ในช่วงอายุ: {ages}")
     st.success("ไปยังข้อ 3")
