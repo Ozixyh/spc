@@ -128,7 +128,7 @@ if know :
 
         @st.cache_data
         def convert_df(df):
-            return df.to_csv(index=False), encoding='utf-8-sig').encode('utf-8-sig')
+            return df.to_csv(index=False, encoding='utf-8-sig').encode('utf-8-sig')
 
         csv = convert_df(df)
 
