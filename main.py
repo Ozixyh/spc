@@ -101,7 +101,7 @@ if know :
 
 
 if alw != "": 
-    st.button("ส่งแบบสอบถาม")and "submitted" not in st.session_state:
+    if st.button("ส่งแบบสอบถาม") and "submitted" not in st.session_state:
         st.session_state["submitted"] = True
     data = {
         "เพศ" : sex,
