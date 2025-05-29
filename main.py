@@ -91,6 +91,7 @@ if freq and (p1 or reason):
                       format_func=lambda x: x)
                       
 
+
 #ข้อ 8
 if know :
     st.subheader("ข้อ 8 : ยี่ห้อที่บริโภคเป็นประจำ")
@@ -98,47 +99,43 @@ if know :
                            options=know,
                            selection_mode="single",
                            format_func=lambda x: x)
-
-
-if alw != "": 
-    if st.button("ส่งแบบสอบถาม") and "submitted" not in st.session_state:
-        st.session_state["submitted"] = True
-    data = {
-        "เพศ" : sex,
-        "อายุ": age,
-        "ช่วงอายุ": ages,
-        "ความถี่": freq,
-        "สถานที่ซื้อ": ', '.join(p1),
-        "เหตุผล": reason,
-        "ความชอบ": rank ,
-        "ยี่ห้อที่รู้จัก" :', '.join(know),
-        "ยี่ห้อที่ทานประจำ" :alw
+    if alw != "": 
+        st.button("ส่งแบบสอบถาม")
+        data = {
+            "เพศ" : sex,
+            "อายุ": age,
+            "ช่วงอายุ": ages,
+            "ความถี่": freq,
+            "สถานที่ซื้อ": ', '.join(p1),
+            "เหตุผล": reason,
+            "ความชอบ": rank ,
+            "ยี่ห้อที่รู้จัก" :', '.join(know),
+            "ยี่ห้อที่ทานประจำ" :alw
         }
+        new = pd.DataFrame([data]) 
+        csv = "jobtest.csv"
+        
+        if os.path.exists(csv):
+            exist_data = pd.read_csv(csv )
+            all_data = pd.concat([exist_data, new], ignore_index=True)
+        else:
+            all_data = new
 
-    new = pd.DataFrame([data]) 
-
-    csv = "jobtest.csv"
-    if os.path.exists(csv):
-        exist_data = pd.read_csv(csv )
-        all_data = pd.concat([exist_data, new], ignore_index=True)
-    else:
-        all_data = new
-
-    all_data.to_csv(csv, index=False)
+        all_data.to_csv(csv, index=False)
     
-    if os.path.exists(csv):
-        df = pd.read_csv(csv)
-        st.info(f"มีผู้ส่งแบบสอบถามแล้วทั้งหมด: **{len(df)}** ครั้ง")
+        if os.path.exists(csv):
+            df = pd.read_csv(csv)
+            st.info(f"มีผู้ส่งแบบสอบถามแล้วทั้งหมด: **{len(df)}** ครั้ง")
 
-    @st.cache_data
-    def convert_df(df):
-        return df.to_csv(index=False).encode('utf-8')
+        @st.cache_data
+        def convert_df(df):
+            return df.to_csv(index=False).encode('utf-8')
 
-    csv = convert_df(df)
+        csv = convert_df(df)
 
-    st.download_button(
-        label=" ดาวน์โหลดข้อมูล(CSV)",
-        data=csv,
-        file_name="jobtest.csv",
-        mime="text/csv",
-    )
+        st.download_button(
+            label=" ดาวน์โหลดข้อมูล(CSV)",
+            data=csv,
+            file_name="jobtest.csv",
+            mime="text/csv",
+        )
