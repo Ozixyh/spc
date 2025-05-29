@@ -99,8 +99,7 @@ if know :
                            options=know,
                            selection_mode="single",
                            format_func=lambda x: x)
-    if alw != "": 
-        st.button("ส่งแบบสอบถาม")
+    if st.button("ส่งแบบสอบถาม") :
         data = {
             "เพศ" : sex,
             "อายุ": age,
