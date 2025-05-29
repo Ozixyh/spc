@@ -18,7 +18,7 @@ st.set_page_config(page_title="แบบสอบถาม", layout="centered")
 st.title("แบบสอบถามพฤติกรรมการบริโภค")
 
 st.write("คุณสมบัติของกลุ่มตัวอย่าง")
-st.warning("เพศชาย / หญิง อายุ 22 - 60 ปี กินมากว่า 1 ครั้ง / เดือน จำนวน 300 ชุด")
+st.warning("เพศชาย / หญิง อายุ 21 - 60 ปี กินมากว่า 1 ครั้ง / เดือน จำนวน 300 ชุด")
 st.markdown("---")
 
 #ข้อ 1
@@ -31,18 +31,15 @@ age_input = st.text_input("ระบุอายุ : ")
 if age_input.isdigit():
     age = int(age_input)
 
-    if 22 <= age <= 31:
-        ages = "22 - 31"
+    if 21 <= age <= 31:
+        ages = "21 - 31"
     elif 32 <= age <= 41: 
         ages = "32 - 41"
     elif 42 <= age <= 51: 
         ages = "42 - 51"
     elif 52 <= age <= 60:
         ages = "52 - 60"
-    elif not age.isdigit() :
-        e = Error("กรุณาระบุเป็นตัวเลข")
-        st.exception(e)
-    else : 
+    else: 
         st.warning("ไม่ผ่านเงื่อนไข ปิดจบแบบสัมภาษณ์")
         if st.button("ส่งแบบสอบถาม"):
             st.success("ส่งข้อมูลเรียบร้อย")
